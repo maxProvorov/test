@@ -27,7 +27,7 @@ $query = new WP_Query( $args );
 if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post();
-		// Load values and assign defaults.
+		
 		$id             = get_the_ID();
         $title             = get_field( 'заголовок', $id );
         $desc           = get_field( 'описание', $id );
@@ -55,10 +55,7 @@ if ( $query->have_posts() ) {
                              ?><span class="genre"><?php   echo $sub_value->name;?> </span><?php
                             }
                         endwhile;
-                        foreach($genres as $genre){
                         
-                            ?><span class="genre"><?php echo esc_html( $genre);echo 123;?> </span>
-                        <?php }
                     ?>
                     </div>
                     <span class="desc"><?php echo esc_html(mb_strimwidth($desc, 0, 90, "...")); ?></span>
