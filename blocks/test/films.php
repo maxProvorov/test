@@ -35,10 +35,9 @@ if ( $query->have_posts() ) {
         $year            = get_field( 'год_выпуска', $id );
         $country       = get_field( 'страна', $id );
         //$genres       = get_field( 'жанр', $id );
-        $genres       = get_sub_field( 'выберите_жанр', $id );
-        
+        $genres       = get_sub_field( 'выберите_жанр', $id );        
 		?>
-		
+	
 	    <div class="card">
 	        <a href = "<?php echo  get_permalink($id) ?>">
                 <div>
@@ -48,7 +47,7 @@ if ( $query->have_posts() ) {
                     <span class="title"><?php echo esc_html( $title ); ?><br></span>
                     <span class="year"><?php echo esc_html( $year ); ?></span>
                     <div class="genres">
-                    <?php print_r($genres);
+                    <?php 
                         while( have_rows('жанр', $id) ) : the_row();
                             $sub_values = get_sub_field('выберите_жанр');
                             foreach($sub_values as $sub_value) {
