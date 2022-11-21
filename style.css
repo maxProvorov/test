@@ -1,0 +1,55 @@
+/*!
+Theme Name: test
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: test
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+*/
+a{
+    text-decoration: none;
+}
+ a:link {
+    color: #000; 
+   }
+a:visited {
+    color: #000;
+}
+a:active {
+    color: #000;
+}
+.wrap{
+    display:flex;
+    width: 1000px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+.card{
+    
+    display:flex;
+    flex-direction:column;
+    width: 22%;
+    text-align: center;
+    margin-right:10px;
+    padding: 10px;
+    
+}
+.title{
+    font-weight: 600;
+    font-size: 21px;
+}
+.genre{
+    padding-right:5px;
+    background: #8E8;
+    border-radius: 5px;
+    padding: 3px;
+}
+.year{
+    margin: 10px 0;
+}

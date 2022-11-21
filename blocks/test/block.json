@@ -1,0 +1,14 @@
+{
+    "name": "acf/films",
+    "title": "Фильмы",
+    "description": "A custom block.",
+    "style": [ "file:./films.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "films.php"
+    },
+    "align": "full"
+}
