@@ -15,19 +15,24 @@
 <div class="wrap">
 <?php 
 
+$selected_movies = get_field( 'выберите_фильм');
+$movie_id_array = [];
+
+foreach($selected_movies as $selected_movie) {
+    $movie_id_array[] = $selected_movie -> ID;
+}
 
 $args = array(
     'posts_per_page' => -1,
     'post_type' => 'films',
+    'post__in'  => $movie_id_array,
 );
 
 $query = new WP_Query( $args );
 
-
 if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post();
-		
 		$id             = get_the_ID();
         $title             = get_field( 'заголовок', $id );
         $desc           = get_field( 'описание', $id );
@@ -35,9 +40,10 @@ if ( $query->have_posts() ) {
         $year            = get_field( 'год_выпуска', $id );
         $country       = get_field( 'страна', $id );
         //$genres       = get_field( 'жанр', $id );
-        $genres       = get_sub_field( 'выберите_жанр', $id );        
+       // $genres       = get_sub_field( 'выберите_жанр', $id );
+        
 		?>
-	
+		
 	    <div class="card">
 	        <a href = "<?php echo  get_permalink($id) ?>">
                 <div>
@@ -47,7 +53,7 @@ if ( $query->have_posts() ) {
                     <span class="title"><?php echo esc_html( $title ); ?><br></span>
                     <span class="year"><?php echo esc_html( $year ); ?></span>
                     <div class="genres">
-                    <?php 
+                    <?php
                         while( have_rows('жанр', $id) ) : the_row();
                             $sub_values = get_sub_field('выберите_жанр');
                             foreach($sub_values as $sub_value) {
